@@ -1,0 +1,35 @@
+
+#This is the tester. It is sage code saved to a .txt file, for the same reason as key.txt. 
+#The tester goes through a list of test cases and compares the student output to the key output. Each correct answer adds one to their score.
+#The output score is the fraction of cases they got correct on each part; this could easily be changed to a raw score or something else.
+#Test cases can either be generated randomly (as in this case) or hardcoded in.
+
+#Begin Tester
+
+
+score = [0,0]  #every student starts at zero
+
+
+#Set up the test cases here; in this case we randomly select 5 integers for the square function, and have 3 matrices hardcoded in for det
+
+Z = IntegerRing()
+
+SquareTestCases = [Z.random_element() for x in range(5)]
+
+DetTestCases = [matrix([1]),matrix([[2,2],[2,1]]),matrix([[3,3,3],[2,2,2],[1,1,1]])]
+
+
+for i in SquareTestCases:
+    if key_square(i) == square(i):    #iterate through the test cases and compare to the key.
+        score[0]+=1
+
+for i in DetTestCases:
+    if key_determinant(i)==determinant(i):
+        score[1]+=1
+
+fractionscore = [score[0]/5,score[1]/3]
+
+grade = open('grades.txt','a')
+grade.write(name+'\n')
+grade.write(str(fractionscore)+'\n')
+grade.close()
