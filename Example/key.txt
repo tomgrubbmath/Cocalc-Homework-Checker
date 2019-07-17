@@ -1,0 +1,11 @@
+
+#This is the key; it is sage code saved to a txt file. The reason for it being a text file is so that 
+#we can simply loop through all .sage files via the code 'for f in *.sage; do foo ;done'
+#without having to exclude a file like 'key.sage' from the for loop
+
+
+def key_square(a):    #If the student is writing a function titled 'foo' then the key function should be titled 'key_foo'
+    return(a^2)
+    
+def key_determinant(M):
+    return(M.det())
